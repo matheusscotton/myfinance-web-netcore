@@ -1,0 +1,28 @@
+﻿@model PlanoContaModel
+
+@{
+    ViewData["Title"] = "Plano Contas";
+
+    var vDescricao = string.Empty;
+    var vTipo = string.Empty;
+
+    try{
+        vDescricao = @ViewBag.PlanoConta.Descricao;
+        vTipo = @ViewBag.PlanoConta.Tipo;
+    }
+    catch{}
+}
+
+<h1> @ViewData["Title"]</h1>
+
+<form asp-controller="PlanoConta" asp-action="CriarPlanoConta">
+    <input type ="hidden" asp-for ="Id"><br>
+
+    <label for="fname">Descrição:</label><br>
+    <input type ="text" asp-for ="Descricao" value=@vDescricao><br>
+
+    <label for="fname">Tipo:</label><br>
+    <input type ="text" asp-for ="Tipo" value=@vTipo><br>
+
+    <button type="submit" class="btn btn-block btn-success"> Registrar</button>
+</form>

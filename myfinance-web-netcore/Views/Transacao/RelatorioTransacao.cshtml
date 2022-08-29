@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Relatorio Transações";
+}
+
+<h3> Relatório de Transações por Periodo</h3>
+<hr>
+
+<div class="form-group">
+            <label>Data:</label>
+            <input type ="date" class="form-control" id ="DataInit"> 
+            <label>a</label>
+            <input type ="date" class="form-control" id ="DataEnd">
+            <button type="button" class="btn btn-block btn-warning" onclick="RelatorioTransacao()">Filtrar</button>
+</div>
+
+<hr>    
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Data</th>
+        <th>Valor</th>
+        <th>Tipo</th>
+        <th>Historico</th>
+        <th>Id Plano Conta</th>
+    </tr>
+
+    @{
+        foreach(var item in (List<TransacaoModel>)ViewBag.Lista)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Data</td>
+                <td>@item.Valor</td>
+                <td>@item.Tipo</td>
+                <td>@item.Historico</td>
+                <td>@item.IdPlanoConta</td>
+            </tr>
+        }
+    }
+</table>
+
+<script>
+    function RelatorioTransacao()
+     {
+        window.location.href = "../Transacao/RelatorioTransacao/";    
+    }
+
+</script>
