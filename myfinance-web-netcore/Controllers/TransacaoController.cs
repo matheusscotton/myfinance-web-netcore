@@ -75,7 +75,7 @@ namespace myfinance_web_netcore.Controllers
             if (dataInit==null)
                 ViewBag.Lista = transacao.ListaTransacoes();
             else
-                ViewBag.Lista = transacao.ListaTransacoesToDates("2022-08-27","2022-08-28");
+                ViewBag.Lista = transacao.ListaTransacoesToDates(dataInit,dataEnd);
             
             return View();
        }

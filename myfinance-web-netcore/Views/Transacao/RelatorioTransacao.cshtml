@@ -5,12 +5,26 @@
 <h3> Relatório de Transações por Periodo</h3>
 <hr>
 
-<div class="form-group">
-            <label>Data:</label>
-            <input type ="date" class="form-control" id ="DataInit"> 
+<div>
+ <table class="table">
+    <tr>
+        <label>Data:</label>
+    </tr>
+    <tr>
+        <th>
+            <input type ="date" class="form-control" id ="DataInit" name="dataInit"> 
+        </th>
+        <th>
             <label>a</label>
-            <input type ="date" class="form-control" id ="DataEnd">
+        </th>
+        <th>
+            
+            <input type ="date" class="form-control" id ="DataEnd" name="dataEnd"> 
+        </th>
+        <th>
             <button type="button" class="btn btn-block btn-warning" onclick="RelatorioTransacao()">Filtrar</button>
+        </th>
+    </tr>
 </div>
 
 <hr>    
@@ -43,7 +57,12 @@
 <script>
     function RelatorioTransacao()
      {
-        window.location.href = "../Transacao/RelatorioTransacao/";    
+        var dInit = document.getElementById("DataInit").value;
+        var dEnd  = document.getElementById("DataEnd").value;
+        
+        console.log(dInit);
+
+        window.location.href = "../Transacao/RelatorioTransacao?"+"dataInit="+dInit+"&"+"dataEnd="+dEnd;
     }
 
 </script>
