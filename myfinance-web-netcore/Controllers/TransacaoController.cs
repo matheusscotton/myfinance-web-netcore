@@ -72,7 +72,7 @@ namespace myfinance_web_netcore.Controllers
         {
             var transacao = new Transacao();
             
-            if (dataInit==null)
+            if (dataInit==null||dataEnd==null)
                 ViewBag.Lista = transacao.ListaTransacoes();
             else
                 ViewBag.Lista = transacao.ListaTransacoesToDates(dataInit,dataEnd);
